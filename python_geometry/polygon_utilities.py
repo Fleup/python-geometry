@@ -5,15 +5,15 @@
 import numpy as np
 
 
-def area_of_polygon(polygon, *args):
+def area_of_polygon_2D(polygon, *args):
     """
-     The Area is positive for counter clockwise ordering otherwise negative see http://paulbourke.net/geometry/polygonmesh/
-
+    Computes the signed area of an arbitrary convex polygon as described in  http://paulbourke.net/geometry/polygonmesh/.
+    The signed area is positive for counter clockwise ordering otherwise negative
     Parameters
     ----------
      polygon:
         np.ndarray, list
-            The polygon as a list of consecutive points.
+            The polygon as a list of consecutive 2D points.
 
     Returns
     -------
@@ -30,7 +30,6 @@ def area_of_polygon(polygon, *args):
                     poly.append(sp)
             else:
                 poly.append(pt)
-
         polygon = np.array(poly)
 
     area = 0.
