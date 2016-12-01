@@ -7,8 +7,11 @@ import numpy as np
 
 def area_of_polygon_2D(polygon, *args):
     """
-    Computes the signed area of an arbitrary convex polygon as described in  http://paulbourke.net/geometry/polygonmesh/.
-    The signed area is positive for counter clockwise ordering otherwise negative
+    Computes the signed area of an arbitrary convex polygon as described in
+    http://paulbourke.net/geometry/polygonmesh/.
+    The signed area is positive for counter clockwise ordering otherwise
+    negative.
+
     Parameters
     ----------
      polygon:
@@ -18,7 +21,7 @@ def area_of_polygon_2D(polygon, *args):
     Returns
     -------
     float
-        Area of the polygon. Note that the area is negativ for clockwise ordering
+        Area of the polygon. The area is negativ for clockwise point ordering
     """
 
     if args:
@@ -34,9 +37,12 @@ def area_of_polygon_2D(polygon, *args):
 
     area = 0.
     for i in range(len(polygon) - 1):
-        area += (polygon[i][0] * polygon[i + 1][1] - polygon[i + 1][0] * polygon[i][1])
-    area += (
-    polygon[-1][0] * polygon[0][1] - polygon[-1][1] * polygon[0][0])  # close the loop with the last crossproduct
+        area += (polygon[i][0] * polygon[i + 1][1]
+                 - polygon[i + 1][0] * polygon[i][1])
+
+    # close the loop with the last crossproduct
+    area += (polygon[-1][0] * polygon[0][1] - polygon[-1][1] * polygon[0][0])
+
     area /= 2.
     if area == 0:
         raise ValueError('Calculated Area is 0!')
